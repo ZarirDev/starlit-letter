@@ -9,5 +9,7 @@ Stack: Vite + React + TypeScript + Framer Motion.
 
 ## Edit
 - `src/config/letter.ts`  the words
-- `src/config/scene.ts`   meteor direction, scroll length, phases, stars, galaxies, colors
+- `src/config/scene.ts`   meteor direction, scroll length, phases, stars, galaxies
 - `src/components/*`      one folder per piece (component + CSS module)
+- `src/hooks/useImpactShake.ts`  camera shake + impact timing
+- `src/components/Impact`        landing flash & shockwave rings

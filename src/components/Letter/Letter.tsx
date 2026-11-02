@@ -10,7 +10,7 @@ function Line({ progress, index, total, text, big = false }: {
   const span = (end - start) / (total + 1)
   const a = start + index * span
   const opacity = useTransform(progress, [a, a + span], [0, 1])
-  const y = useTransform(progress, [a, a + span], [14, 0])
+  const y = useTransform(progress, [a, a + span], [16, 0])
   return <motion.p className={big ? styles.big : styles.line} style={{ opacity, y }}>{text}</motion.p>
 }
 
@@ -18,6 +18,7 @@ export default function Letter({ progress }: { progress: MotionValue<number> }) 
   const all = [letter.greeting, ...letter.lines, letter.signOff, letter.from]
   return (
     <div className={styles.paper}>
+      <span className={styles.stamp}>💌</span>
       {all.map((text, i) => (
         <Line key={i} progress={progress} index={i} total={all.length} text={text}
           big={i === 0 || i >= all.length - 2} />

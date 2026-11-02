@@ -1,11 +1,33 @@
 .meteor { position: absolute; width: 0; height: 0; pointer-events: none; }
+
 .head {
-  position: absolute; width: 22px; height: 22px; translate: -50% -50%; border-radius: 50%;
-  background: radial-gradient(circle, #fff 0 35%, #ffb3d1 60%, transparent 72%);
-  box-shadow: 0 0 30px 10px rgba(255, 150, 200, 0.7);
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0 32%, #ffd6e7 48%, #ff8fc0 64%, transparent 74%);
+  box-shadow: 0 0 24px 8px rgba(255, 160, 205, 0.8), 0 0 80px 28px rgba(255, 90, 160, 0.35);
+  animation: headPulse 0.9s ease-in-out infinite alternate;
 }
+
+@keyframes headPulse {
+  from { opacity: 0.85; }
+  to { opacity: 1; }
+}
+
 .tail {
-  position: absolute; left: 0; top: -3px; width: 55vmin; height: 6px; transform-origin: 0 50%;
-  background: linear-gradient(90deg, rgba(255, 190, 220, 0.9), transparent);
-  border-radius: 6px; filter: blur(2px);
+  position: absolute;
+  left: 0;
+  top: -6px;
+  width: 62vmin;
+  height: 12px;
+  transform-origin: 0 50%;
+  border-radius: 12px;
+  background: linear-gradient(90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 170, 210, 0.75) 14%,
+    rgba(206, 128, 255, 0.4) 45%,
+    transparent 92%);
+  filter: blur(2.5px) drop-shadow(0 0 10px rgba(255, 130, 190, 0.7));
 }

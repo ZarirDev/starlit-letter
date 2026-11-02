@@ -1,14 +1,51 @@
 :root {
-  --bg: #05060f;
+  --bg: #04050e;
   --env-w: min(78vw, 420px);
   --paper-w: min(88vw, 400px);
   --paper-h: min(72vh, 540px);
-  --envelope-back: #c9577f;
-  --envelope-front: #e57a9f;
-  --envelope-flap: #f08fb0;
+  --envelope-back: #a83e63;
+  --envelope-front: #e2749b;
+  --envelope-flap: #f293b5;
   --paper: #fff8ee;
   --ink: #5a3a48;
+  --rose: #ff7fb0;
+  --violet: #b08bff;
+  --ice: #8fc4ff;
   font-family: 'Quicksand', system-ui, sans-serif;
+  color-scheme: dark;
 }
+
 * { box-sizing: border-box; margin: 0; }
-body { background: var(--bg); color: #fff; overflow-x: hidden; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: #fff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: rgba(255, 127, 176, 0.35); color: #fff; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #060714; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff7fb0, #b08bff);
+  border: 2px solid #060714;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #ff9cc2, #c2a4ff); }
+
+/* Firefox */
+html { scrollbar-width: thin; scrollbar-color: #ff7fb0 #060714; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}

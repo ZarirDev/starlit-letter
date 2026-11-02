@@ -1,0 +1,55 @@
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(70vw 60vh at 16% 8%, rgba(120, 78, 255, 0.16), transparent 70%),
+    radial-gradient(60vw 55vh at 84% 76%, rgba(255, 92, 162, 0.14), transparent 70%),
+    radial-gradient(50vw 45vh at 66% 14%, rgba(72, 168, 255, 0.10), transparent 72%),
+    radial-gradient(80vw 40vh at 50% 108%, rgba(255, 140, 190, 0.10), transparent 65%),
+    var(--bg);
+}
+
+.backdrop::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+}
+
+.backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 45%, transparent 42%, rgba(2, 3, 12, 0.72) 100%);
+}
+
+.world {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  will-change: transform;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, #ff7fb0, #c98bff 55%, #7fbcff);
+  box-shadow: 0 0 14px rgba(255, 127, 176, 0.7);
+  z-index: 20;
+}

@@ -1,4 +1,43 @@
-.hero { position: absolute; text-align: center; pointer-events: none; }
-.hero h1 { font-family: 'Caveat', cursive; font-size: clamp(2.4rem, 8vw, 4.5rem); text-shadow: 0 0 24px #ff9ec6; }
-.hero p { margin-top: 1rem; opacity: 0.7; letter-spacing: 0.15em; animation: bob 1.8s ease-in-out infinite; }
+.hero { position: absolute; text-align: center; pointer-events: none; padding: 2rem; }
+
+.hero h1 {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(2.6rem, 9vw, 5.2rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  background: linear-gradient(180deg, #fff 10%, #ffd3e4 55%, #c9a5ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 30px rgba(255, 130, 180, 0.45));
+}
+
+.rule {
+  position: relative;
+  width: min(220px, 50vw);
+  height: 1px;
+  margin: 1.1rem auto 1.2rem;
+  background: linear-gradient(90deg, transparent, rgba(255, 170, 205, 0.8), transparent);
+}
+
+.rule::after {
+  content: '✦';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  font-size: 0.7rem;
+  color: #ffc2da;
+}
+
+.hero p {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  opacity: 0.55;
+  animation: bob 1.8s ease-in-out infinite;
+}
+
 @keyframes bob { 50% { transform: translateY(8px); } }

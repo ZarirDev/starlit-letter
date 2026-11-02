@@ -1,14 +1,47 @@
 .galaxy {
   position: absolute;
   translate: -50% -50%;
+  pointer-events: none;
+  opacity: 0.9;
+  mix-blend-mode: screen;
+}
+
+.halo {
+  position: absolute;
+  inset: -38%;
   border-radius: 50%;
-  filter: blur(5px);
-  opacity: 0.75;
+  background: radial-gradient(circle, hsla(var(--h), 100%, 72%, 0.22), transparent 62%);
+  filter: blur(20px);
+}
+
+.disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  scale: 1 0.52; /* tilted disc */
   background:
-    radial-gradient(circle, hsla(var(--h), 90%, 92%, 0.95) 0 3%, transparent 8%),
-    conic-gradient(from 0deg, transparent, hsla(var(--h), 85%, 62%, 0.5), transparent 30%,
-      hsla(var(--h), 85%, 62%, 0.5) 50%, transparent 80%);
-  -webkit-mask-image: radial-gradient(circle, #000 0, transparent 68%);
-  mask-image: radial-gradient(circle, #000 0, transparent 68%);
-  scale: 1 0.5; /* tilted disc */
+    radial-gradient(circle at 50% 50%, hsla(var(--h), 100%, 88%, 0.8) 0 3%, transparent 20%),
+    conic-gradient(from 0deg,
+      transparent 0 5%,
+      hsla(var(--h), 95%, 68%, 0.55) 9% 19%,
+      transparent 25% 33%,
+      hsla(calc(var(--h) + 25), 95%, 70%, 0.42) 37% 49%,
+      transparent 55% 61%,
+      hsla(calc(var(--h) - 25), 95%, 70%, 0.48) 65% 77%,
+      transparent 83%);
+  -webkit-mask-image: radial-gradient(circle, #000 0 26%, rgba(0, 0, 0, 0.55) 44%, transparent 70%);
+  mask-image: radial-gradient(circle, #000 0 26%, rgba(0, 0, 0, 0.55) 44%, transparent 70%);
+  filter: blur(2px) saturate(1.4);
+}
+
+.core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 15%;
+  height: 15%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0 22%, hsla(var(--h), 100%, 86%, 0.9) 48%, transparent 74%);
+  box-shadow: 0 0 28px 6px hsla(var(--h), 100%, 70%, 0.4);
 }

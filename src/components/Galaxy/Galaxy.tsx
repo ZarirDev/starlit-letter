@@ -18,6 +18,10 @@ export default function Galaxy({ progress, x, y, size, hue, depth, tilt }: Props
         left: `${x}vw`, top, width: size, height: size, rotate: spin,
         ['--h' as string]: hue,
       }}
-    />
+    >
+      <div className={styles.halo} />
+      <div className={styles.disc} />
+      <div className={styles.core} />
+    </motion.div>
   )
 }
