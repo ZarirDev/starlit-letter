@@ -1,0 +1,4 @@
+.hero { position: absolute; text-align: center; pointer-events: none; }
+.hero h1 { font-family: 'Caveat', cursive; font-size: clamp(2.4rem, 8vw, 4.5rem); text-shadow: 0 0 24px #ff9ec6; }
+.hero p { margin-top: 1rem; opacity: 0.7; letter-spacing: 0.15em; animation: bob 1.8s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(8px); } }

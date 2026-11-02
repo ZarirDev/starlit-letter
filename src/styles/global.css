@@ -1,0 +1,14 @@
+:root {
+  --bg: #05060f;
+  --env-w: min(78vw, 420px);
+  --paper-w: min(88vw, 400px);
+  --paper-h: min(72vh, 540px);
+  --envelope-back: #c9577f;
+  --envelope-front: #e57a9f;
+  --envelope-flap: #f08fb0;
+  --paper: #fff8ee;
+  --ink: #5a3a48;
+  font-family: 'Quicksand', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; }
+body { background: var(--bg); color: #fff; overflow-x: hidden; }

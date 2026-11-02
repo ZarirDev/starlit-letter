@@ -1,0 +1,14 @@
+.galaxy {
+  position: absolute;
+  translate: -50% -50%;
+  border-radius: 50%;
+  filter: blur(5px);
+  opacity: 0.75;
+  background:
+    radial-gradient(circle, hsla(var(--h), 90%, 92%, 0.95) 0 3%, transparent 8%),
+    conic-gradient(from 0deg, transparent, hsla(var(--h), 85%, 62%, 0.5), transparent 30%,
+      hsla(var(--h), 85%, 62%, 0.5) 50%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle, #000 0, transparent 68%);
+  mask-image: radial-gradient(circle, #000 0, transparent 68%);
+  scale: 1 0.5; /* tilted disc */
+}
