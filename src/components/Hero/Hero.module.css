@@ -1,42 +1,74 @@
-.hero { position: absolute; text-align: center; pointer-events: none; padding: 2rem; }
+.hero {
+  position: absolute;
+  text-align: center;
+  pointer-events: none;
+  padding: 2rem;
+  isolation: isolate;
+}
+
+/* soft radial glow behind the text */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -45% -35%;
+  z-index: -1;
+  background: radial-gradient(ellipse at 50% 50%,
+    rgba(255, 150, 205, 0.22) 0%,
+    rgba(180, 120, 255, 0.12) 38%,
+    transparent 68%);
+  filter: blur(24px);
+  animation: heroGlow 7s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+  from { opacity: 0.8; transform: scale(1); }
+  to   { opacity: 1;   transform: scale(1.06); }
+}
 
 .hero h1 {
   font-family: 'Caveat', cursive;
-  font-size: clamp(2.6rem, 9vw, 5.2rem);
+  font-size: clamp(3rem, 11vw, 6.5rem);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.005em;
   background: linear-gradient(180deg, #fff 10%, #ffd3e4 55%, #c9a5ff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 0 30px rgba(255, 130, 180, 0.45));
+  /* layered glow: tight inner + soft wide + dark drop for legibility */
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.35),
+    0 0 26px rgba(255, 130, 180, 0.55),
+    0 0 60px rgba(200, 130, 255, 0.35),
+    0 6px 22px rgba(0, 0, 0, 0.55);
+  filter: drop-shadow(0 4px 26px rgba(255, 130, 180, 0.35));
 }
 
 .rule {
   position: relative;
-  width: min(220px, 50vw);
+  width: min(260px, 55vw);
   height: 1px;
-  margin: 1.1rem auto 1.2rem;
-  background: linear-gradient(90deg, transparent, rgba(255, 170, 205, 0.8), transparent);
+  margin: 1.4rem auto 1.4rem;
+  background: linear-gradient(90deg, transparent, rgba(255, 170, 205, 0.85), transparent);
 }
-
 .rule::after {
   content: '✦';
   position: absolute;
   left: 50%;
   top: 50%;
   translate: -50% -50%;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: #ffc2da;
+  text-shadow: 0 0 10px #ff7fb0;
 }
 
 .hero p {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.42em;
-  text-indent: 0.42em;
-  opacity: 0.55;
+  letter-spacing: 0.45em;
+  text-indent: 0.45em;
+  opacity: 0.78;
+  text-shadow: 0 0 12px rgba(255, 180, 220, 0.5), 0 2px 6px rgba(0, 0, 0, 0.6);
   animation: bob 1.8s ease-in-out infinite;
 }
 

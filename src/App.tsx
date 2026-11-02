@@ -20,6 +20,7 @@ export default function App() {
     <main ref={ref} style={{ height: `${scene.scrollLength}vh` }}>
       <div className={styles.stage}>
         <div className={styles.backdrop} />
+        <div className={styles.nebula} />
 
         <motion.div className={styles.world} style={{ x, y, rotate, scale }}>
           <StarField progress={progress} />
