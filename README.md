@@ -13,3 +13,4 @@ Stack: Vite + React + TypeScript + Framer Motion.
 - `src/components/*`      one folder per piece (component + CSS module)
 - `src/hooks/useImpactShake.ts`  camera shake + impact timing
 - `src/components/Impact`        landing flash & shockwave rings
+- `public/assets/`        star image + certificate (image.png, certificate.pdf)

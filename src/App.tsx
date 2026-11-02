@@ -8,6 +8,7 @@ import Galaxy from './components/Galaxy/Galaxy'
 import Hero from './components/Hero/Hero'
 import Meteor from './components/Meteor/Meteor'
 import Envelope from './components/Envelope/Envelope'
+import StarCard from './components/StarCard/StarCard'
 import Impact from './components/Impact/Impact'
 import styles from './App.module.css'
 
@@ -30,6 +31,7 @@ export default function App() {
           <Hero progress={progress} />
           <Meteor progress={progress} />
           <Envelope progress={progress} />
+          <StarCard progress={progress} />
           <Impact pulse={pulse} />
         </motion.div>
 

@@ -1,0 +1,296 @@
+.stage {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* ─── the sun: warm halo around the image, never behind text ── */
+
+.sunGlow {
+  position: absolute;
+  top: 8vh;
+  left: 50%;
+  translate: -50% 0;
+  width: min(96vmin, 950px);
+  height: min(58vmin, 540px);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(28px);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 240, 190, 0.42) 0%,
+    rgba(255, 215, 120, 0.22) 26%,
+    rgba(255, 185, 70, 0.09) 55%,
+    transparent 82%
+  );
+  animation: sunPulse 9s ease-in-out infinite alternate;
+}
+
+.sunGlow::before {
+  content: '';
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 248, 210, 0.55) 0%,
+    rgba(255, 215, 130, 0.22) 38%,
+    transparent 70%
+  );
+  filter: blur(18px);
+}
+
+@keyframes sunPulse {
+  from { opacity: 0.85; transform: scale(1); }
+  to   { opacity: 1;    transform: scale(1.04); }
+}
+
+/* ─── content column ────────────────────────────── */
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3vh 5vw;
+  gap: 1.4vh;
+  font-family: 'Cormorant Garamond', serif;
+  color: #f5efe0;
+}
+
+.kicker {
+  font-style: italic;
+  font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+  color: rgba(201, 169, 97, 0.95);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* ─── star image — the main event ───────────────── */
+
+.imageWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-height: 44vh;
+  flex: 0 0 auto;
+}
+
+.imageFrame {
+  display: inline-block;
+  padding: 0.5rem;
+  border: 1px solid rgba(201, 169, 97, 0.42);
+  background: #05060f;
+  line-height: 0;
+  box-shadow:
+    0 14px 44px rgba(0, 0, 0, 0.55),
+    0 0 80px rgba(255, 200, 100, 0.08);
+}
+
+/* natural 1708×962 — preserves aspect automatically */
+.imageFrame img {
+  display: block;
+  max-width: min(88vw, 1000px);
+  max-height: 42vh;
+  width: auto;
+  height: auto;
+}
+
+/* ─── name block ────────────────────────────────── */
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3vh;
+  flex: 0 0 auto;
+}
+
+.name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #fbf6e8;
+  text-shadow: 0 0 40px rgba(255, 235, 170, 0.15);
+  margin: 0;
+}
+
+.subtitle {
+  font-style: italic;
+  font-size: clamp(0.88rem, 1.4vw, 1rem);
+  color: rgba(245, 239, 224, 0.68);
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+/* ─── note + certificate ────────────────────────── */
+
+.infoRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5vw;
+  width: 100%;
+  max-width: 900px;
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-top: 1vh;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 0;
+  text-align: left;
+}
+
+.label {
+  font-family: 'Quicksand', system-ui, sans-serif;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(201, 169, 97, 0.9);
+  margin: 0 0 0.3rem;
+}
+
+.body {
+  font-size: clamp(0.82rem, 1.15vw, 0.92rem);
+  line-height: 1.52;
+  color: rgba(245, 239, 224, 0.82);
+  margin: 0;
+}
+
+.cert {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-height: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.certFrame {
+  flex: 1;
+  min-height: 0;
+  border: 1px solid rgba(201, 169, 97, 0.35);
+  background: #05060f;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cert:hover .certFrame,
+.cert:focus-visible .certFrame {
+  border-color: rgba(255, 220, 150, 0.65);
+  box-shadow:
+    0 10px 32px rgba(0, 0, 0, 0.5),
+    0 0 32px rgba(255, 200, 100, 0.14);
+}
+
+/* natural 3543×2362 — preserves aspect automatically */
+.certFrame img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+.certCaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: 'Quicksand', system-ui, sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.certLabel {
+  color: rgba(201, 169, 97, 0.9);
+  font-weight: 600;
+}
+
+.certOpen {
+  color: rgba(201, 169, 97, 0.55);
+  transition: color 0.2s ease;
+}
+
+.cert:hover .certOpen,
+.cert:focus-visible .certOpen {
+  color: rgba(201, 169, 97, 1);
+}
+
+/* ─── footer link ───────────────────────────────── */
+
+.footerLink {
+  font-family: 'Quicksand', system-ui, sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(201, 169, 97, 0.75);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 0 0 auto;
+  transition: color 0.2s ease;
+}
+
+.footerLink:hover,
+.footerLink:focus-visible {
+  color: rgba(245, 239, 224, 1);
+  outline: none;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.footerLink:hover .arrow,
+.footerLink:focus-visible .arrow {
+  transform: translate(2px, -2px);
+}
+
+/* ─── responsive ────────────────────────────────── */
+
+@media (max-width: 720px) {
+  .content { padding: 2vh 4vw; gap: 1vh; }
+
+  .imageFrame img {
+    max-width: 92vw;
+    max-height: 36vh;
+  }
+
+  .name { font-size: clamp(2rem, 8vw, 2.8rem); }
+
+  .infoRow {
+    grid-template-columns: 1fr;
+    gap: 1.5vh;
+    flex: 0 0 auto;
+    margin-top: 0.5vh;
+  }
+
+  .certFrame {
+    flex: 0 0 auto;
+    height: 22vh;
+  }
+}
+
+@media (max-height: 700px) {
+  .imageFrame img { max-height: 34vh; }
+  .infoRow { gap: 2vw; }
+  .body { font-size: 0.8rem; }
+}

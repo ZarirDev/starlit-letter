@@ -1,12 +1,15 @@
 // Everything the reader sees inside the letter. Edit freely.
 export const letter = {
-  greeting: 'Dear you,',
+  greeting: 'Dear Tathoi 🩷,',
   lines: [
-    'I crossed a few million light years just to land here.',
-    'You make ordinary days feel like meteor showers.',
-    'Thank you for being my favourite constellation.',
-    'P.S. You owe me a cuddle. ✨',
+    'I always wished I could bring you the moon.',
+    'But moons are quite overrated.',
+    'I got something better for you my love.',
+    'I wish you the very best in everything in life.',
+    'And I also wish to be yours forever and ever.',
+    'LOVE YOU SO SO SO SOO MUCH!',
+    'P.S. You owe me a kiss. 😤',
   ],
   signOff: 'Forever yours,',
-  from: 'Me 💫',
+  from: 'Zarir 💫',
 }
